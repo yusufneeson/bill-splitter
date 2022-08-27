@@ -1,0 +1,12 @@
+.tip {
+	margin: 5rem 0;
+}
+
+.text {
+	color: var(--darkGrayishCyan);
+}
+
+.buttons {
+	margin-top: 2rem;
+	display: grid;
+}

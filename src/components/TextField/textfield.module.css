@@ -1,0 +1,42 @@
+.label {
+	color: var(--darkGrayishCyan);
+	display: block;
+	margin-bottom: 1rem;
+}
+
+.input::placeholder {
+	color: var(--grayishCyan);
+}
+
+.input {
+	display: block;
+	width: 100%;
+	color: var(--darkCyan);
+	background-color: var(--veryLightCyan);
+	padding: 1rem 1.8rem;
+	border-radius: 0.5rem;
+	border: 0;
+	text-align: right;
+}
+
+.input:focus,
+.input:focus-visible {
+	outline: 2px solid var(--strongCyan);
+}
+
+.formIcon .input {
+	padding-left: 4rem;
+}
+
+.formIcon {
+	position: relative;
+}
+
+.icon {
+	position: absolute;
+	left: 1.8rem;
+	top: 1.9rem;
+}
+.icon svg {
+	font-size: 2.4rem;
+}

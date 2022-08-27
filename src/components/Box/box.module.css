@@ -1,0 +1,15 @@
+.box {
+	width: 100%;
+	padding: 5rem;
+	border-radius: 1rem;
+	display: flex;
+	gap: 5rem;
+}
+
+.boxwhite {
+	background-color: var(--white);
+}
+
+.boxgreen {
+	background-color: var(--darkCyan);
+}

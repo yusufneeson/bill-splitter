@@ -11,3 +11,9 @@
 	flex-direction: column;
 	gap: 3.3rem;
 }
+
+@media screen and (max-width: 425px) {
+	.amounter {
+		margin-bottom: 3.6rem;
+	}
+}

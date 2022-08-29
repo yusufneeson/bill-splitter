@@ -1,8 +1,10 @@
+import { useCalcContext } from "../../context/calc.context";
 import Button from "../Button/Button";
 import TextField from "../TextField/TextField";
 import style from "./tip.module.css";
 
 function Tip() {
+	const { state, tipChange } = useCalcContext();
 	return (
 		<div className={style.tip}>
 			<span className={style.text}>Select Tip %</span>
@@ -12,7 +14,12 @@ function Tip() {
 				<Button>15%</Button>
 				<Button>25%</Button>
 				<Button>50%</Button>
-				<TextField type="number" placeholder="Custom" />
+				<TextField
+					type="number"
+					placeholder="Custom"
+					value={state.tip}
+					onChange={tipChange}
+				/>
 			</div>
 		</div>
 	);

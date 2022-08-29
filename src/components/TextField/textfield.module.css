@@ -1,7 +1,7 @@
 .label {
 	color: var(--darkGrayishCyan);
 	display: block;
-	margin-bottom: 1rem;
+	margin-bottom: 0.5rem;
 }
 
 .input::placeholder {
@@ -13,7 +13,7 @@
 	width: 100%;
 	color: var(--darkCyan);
 	background-color: var(--veryLightCyan);
-	padding: 1rem 1.8rem;
+	padding: 0.6rem 1.8rem;
 	border-radius: 0.5rem;
 	border: 0;
 	text-align: right;
@@ -32,10 +32,14 @@
 	position: relative;
 }
 
+.formBiasa {
+	position: unset;
+}
+
 .icon {
 	position: absolute;
 	left: 1.8rem;
-	top: 1.9rem;
+	top: 1.4rem;
 }
 .icon svg {
 	font-size: 2.4rem;

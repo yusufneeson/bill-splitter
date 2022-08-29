@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Box from "../components/Box/Box";
+import Calculation from "../components/Calculation/Calculation";
 import Dollar from "../components/Svgs/dollar";
 import Person from "../components/Svgs/person";
 import TextField from "../components/TextField/TextField";
@@ -51,7 +52,9 @@ export default function Home() {
 							type="number"
 						/>
 					</div>
-					<Box bg="green" />
+					<Box bg="green">
+						<Calculation />
+					</Box>
 				</Box>
 			</HomeLayout>
 		</>

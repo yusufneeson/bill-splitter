@@ -1,7 +1,15 @@
 import style from "./textfield.module.css";
 
 function TextField(props) {
-	const { label, icon, type = "text", placeholder = "0" } = props;
+	const {
+		label,
+		icon,
+		type = "text",
+		placeholder = "0",
+		value,
+		onChange,
+	} = props;
+
 	return (
 		<div className={style.textField}>
 			{label && <label className={style.label}>{label}</label>}
@@ -11,6 +19,8 @@ function TextField(props) {
 					className={style.input}
 					type={type}
 					placeholder={placeholder}
+					value={value}
+					onChange={onChange}
 				/>
 			</div>
 		</div>

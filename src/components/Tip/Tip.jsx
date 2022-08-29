@@ -12,7 +12,7 @@ function Tip() {
 				<Button>15%</Button>
 				<Button>25%</Button>
 				<Button>50%</Button>
-				<TextField placeholder="Custom" />
+				<TextField type="number" placeholder="Custom" />
 			</div>
 		</div>
 	);

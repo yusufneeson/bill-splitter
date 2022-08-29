@@ -1,0 +1,8 @@
+.calc {
+	width: 33.2rem;
+}
+
+.flex {
+	display: flex;
+	justify-content: space-between;
+}

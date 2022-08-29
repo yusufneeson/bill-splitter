@@ -39,7 +39,7 @@ export default function Home() {
 			</Head>
 			<HomeLayout>
 				<Box>
-					<div>
+					<div style={{ padding: "1.4rem 0" }}>
 						<TextField
 							icon={<Dollar />}
 							label="Bill"

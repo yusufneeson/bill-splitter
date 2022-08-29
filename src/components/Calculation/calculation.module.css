@@ -1,8 +1,13 @@
 .calc {
 	width: 33.2rem;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 }
 
-.flex {
+.amounter {
 	display: flex;
-	justify-content: space-between;
+	flex-direction: column;
+	gap: 3.3rem;
 }

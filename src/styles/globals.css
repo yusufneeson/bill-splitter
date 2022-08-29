@@ -1,5 +1,6 @@
 :root {
 	--strongCyan: hsl(172, 67%, 45%);
+	--cyanLumayan: #9fe8df;
 	--darkCyan: hsl(183, 100%, 15%);
 	--grayishCyan: hsl(184, 14%, 56%);
 	--darkGrayishCyan: hsl(186, 14%, 43%);
@@ -19,7 +20,7 @@ body {
 }
 
 body {
-	font-size: 1.4rem;
+	font-size: 1.6rem;
 	font-weight: 700;
 	background-color: var(--lightGrayishCyan);
 	font-family: "Space Mono", monospace;

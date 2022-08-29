@@ -1,62 +1,39 @@
-import Head from "next/head";
 import Box from "../components/Box/Box";
 import Calculation from "../components/Calculation/Calculation";
 import Dollar from "../components/Svgs/dollar";
 import Person from "../components/Svgs/person";
 import TextField from "../components/TextField/TextField";
 import Tip from "../components/Tip/Tip";
+import { useCalcContext } from "../context/calc.context";
 import HomeLayout from "../layouts/home";
 
 export default function Home() {
+	const { state, billChange, peopleChange } = useCalcContext();
+
 	return (
-		<>
-			<Head>
-				<title>Bill Splitter</title>
-				<meta name="robots" content="follow, index" />
-				<meta
-					content="Bill Splitter using Next.js from Frontend Mentor Challenge created by Yusuf Neeson"
-					name="description"
-				/>
-				<meta property="og:type" content="website" />
-				<meta property="og:site_name" content="Yusuf Neeson" />
-				<meta
-					property="og:description"
-					content="Bill Splitter using Next.js from Frontend Mentor Challenge created by Yusuf Neeson"
-				/>
-				<meta
-					property="og:title"
-					content="Bill Splitter - Yusuf Neeson"
-				/>
-				<meta name="twitter:site" content="@yusufneeson" />
-				<meta
-					name="twitter:title"
-					content="Bill Splitter - Yusuf Neeson"
-				/>
-				<meta
-					name="twitter:description"
-					content="Bill Splitter using Next.js from Frontend Mentor Challenge created by Yusuf Neeson"
-				/>
-			</Head>
-			<HomeLayout>
-				<Box>
-					<div style={{ padding: "1.4rem 0" }}>
-						<TextField
-							icon={<Dollar />}
-							label="Bill"
-							type="number"
-						/>
-						<Tip />
-						<TextField
-							icon={<Person />}
-							label="Number of People"
-							type="number"
-						/>
-					</div>
-					<Box bg="green">
-						<Calculation />
-					</Box>
+		<HomeLayout>
+			<Box>
+				<div style={{ padding: "1.4rem 0" }}>
+					<TextField
+						icon={<Dollar />}
+						label="Bill"
+						type="number"
+						value={state.bill}
+						onChange={billChange}
+					/>
+					<Tip />
+					<TextField
+						icon={<Person />}
+						label="Number of People"
+						type="number"
+						value={state.people}
+						onChange={peopleChange}
+					/>
+				</div>
+				<Box bg="green">
+					<Calculation />
 				</Box>
-			</HomeLayout>
-		</>
+			</Box>
+		</HomeLayout>
 	);
 }

@@ -16,22 +16,23 @@ function calcReducer(state, action) {
 			return {
 				...state,
 				bill: action.bill,
-				tipamount: action.tipamount,
-				total: action.total,
 			};
 		}
 		case "tip": {
 			return {
 				...state,
 				tip: action.tip,
-				tipamount: action.tipamount,
-				total: action.total,
 			};
 		}
 		case "people": {
 			return {
 				...state,
 				people: action.people,
+			};
+		}
+		case "total": {
+			return {
+				...state,
 				tipamount: action.tipamount,
 				total: action.total,
 			};
@@ -44,47 +45,46 @@ function CalcProvider({ children }) {
 
 	const billChange = (e) => {
 		let bill = e.target.value;
-		let total = `0.00`;
-		let tipamount = `0.00`;
-		let people = Number(state.people) < 1 ? 0 : state.people;
-		let tip = Number(state.tip) < 1 ? 0 : state.tip;
-
-		if (people && tip) {
-			tipamount = Number(((bill * tip) / 100 / people).toFixed(2));
-			total = Number((bill / people + tipamount).toFixed(2));
-		}
-
-		dispatch({ type: "bill", bill, tipamount, total });
+		calcTotal("bill", bill);
+		dispatch({ type: "bill", bill });
 	};
 
 	const peopleChange = (e) => {
 		let people = e.target.value;
-		let total = `0.00`;
-		let tipamount = `0.00`;
-		let bill = Number(state.bill) < 1 ? 0 : state.bill;
-		let tip = Number(state.tip) < 1 ? 0 : state.tip;
-
-		if (bill && tip && Number(people) > 0) {
-			tipamount = Number(((bill * tip) / 100 / people).toFixed(2));
-			total = Number((bill / people + tipamount).toFixed(2));
-		}
-
-		dispatch({ type: "people", people, tipamount, total });
+		calcTotal("people", people);
+		dispatch({ type: "people", people });
 	};
 
 	const tipChange = (e) => {
 		let tip = e.target.value;
+		calcTotal("tip", tip);
+		dispatch({ type: "tip", tip });
+	};
+
+	const calcTotal = (type, current) => {
+		const typeCast = {
+			tip: ["bill", "people"],
+			people: ["bill", "tip"],
+			bill: ["people", "tip"],
+		};
+
+		const theType = typeCast[type];
+
 		let total = `0.00`;
 		let tipamount = `0.00`;
-		let bill = Number(state.bill) < 1 ? 0 : state.bill;
-		let people = Number(state.people) < 1 ? 0 : state.people;
+		let key1 = Number(state[theType[0]]) < 1 ? 0 : state[theType[0]];
+		let key2 = Number(state[theType[1]]) < 1 ? 0 : state[theType[1]];
 
-		if (bill && people) {
+		let bill = type == "bill" ? current : key1;
+		let tip = type == "tip" ? current : key2;
+		let people = type == "people" ? current : type == "tip" ? key2 : key1;
+
+		if (key1 && key2 && Number(people) > 0) {
 			tipamount = Number(((bill * tip) / 100 / people).toFixed(2));
 			total = Number((bill / people + tipamount).toFixed(2));
 		}
 
-		dispatch({ type: "tip", tip, tipamount, total });
+		dispatch({ type: "total", tipamount, total });
 	};
 
 	return (

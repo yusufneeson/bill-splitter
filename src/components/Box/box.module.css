@@ -13,3 +13,9 @@
 .boxgreen {
 	background-color: var(--darkCyan);
 }
+
+@media screen and (max-width: 425px) {
+	.box {
+		flex-direction: column;
+	}
+}

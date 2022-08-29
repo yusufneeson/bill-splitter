@@ -3,4 +3,27 @@
 	justify-items: center;
 	align-items: center;
 	height: 100vh;
+	grid-template-rows: max-content;
+}
+
+.logo {
+	padding-top: 16.3rem;
+}
+
+.home {
+	padding: 0 3rem;
+}
+
+@media screen and (max-width: 425px) {
+	.logo {
+		padding-top: 0;
+	}
+
+	.layout {
+		grid-template-rows: 144px 1fr;
+	}
+
+	.home {
+		padding: 0;
+	}
 }

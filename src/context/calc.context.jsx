@@ -61,6 +61,13 @@ function CalcProvider({ children }) {
 		dispatch({ type: "tip", tip });
 	};
 
+	const resetCalc = () => {
+		dispatch({ type: "total", tipamount: "0.00", total: "0.00" });
+		dispatch({ type: "tip", tip: "" });
+		dispatch({ type: "people", people: "" });
+		dispatch({ type: "bill", bill: "" });
+	};
+
 	const calcTotal = (type, current) => {
 		const typeCast = {
 			tip: ["bill", "people"],
@@ -89,7 +96,14 @@ function CalcProvider({ children }) {
 
 	return (
 		<CalcContext.Provider
-			value={{ state, dispatch, billChange, peopleChange, tipChange }}
+			value={{
+				state,
+				dispatch,
+				billChange,
+				peopleChange,
+				tipChange,
+				resetCalc,
+			}}
 		>
 			{children}
 		</CalcContext.Provider>

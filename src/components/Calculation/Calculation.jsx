@@ -4,7 +4,8 @@ import TextAmount from "../TextAmount/TextAmount";
 import style from "./calculation.module.css";
 
 function Calculation() {
-	const { state } = useCalcContext();
+	const { state, resetCalc } = useCalcContext();
+	const btnState = Number(state.total) > 0 ? "active" : "disabled";
 
 	return (
 		<div className={style.calc}>
@@ -12,7 +13,9 @@ function Calculation() {
 				<TextAmount text="Tip Amount" amount={state.tipamount} />
 				<TextAmount text="Total" amount={state.total} />
 			</div>
-			<Button state="disabled">RESET</Button>
+			<Button state={btnState} onClick={resetCalc}>
+				RESET
+			</Button>
 		</div>
 	);
 }

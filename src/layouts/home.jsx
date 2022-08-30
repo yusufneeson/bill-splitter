@@ -2,6 +2,7 @@ import Logo from "../components/Svgs/Logo";
 import style from "./home.module.css";
 import Link from "next/link";
 import Head from "next/head";
+import About from "../components/About/About";
 
 function HomeLayout({ children }) {
 	return (
@@ -44,6 +45,7 @@ function HomeLayout({ children }) {
 				</header>
 				<section className={style.home}>{children}</section>
 			</div>
+			<About />
 		</>
 	);
 }

@@ -7,7 +7,7 @@ function HomeLayout({ children }) {
 	return (
 		<>
 			<Head>
-				<title>Bill Splitter</title>
+				<title>Bill Splitter by Yusuf Neeson</title>
 				<meta name="robots" content="follow, index" />
 				<meta
 					content="Bill Splitter using Next.js from Frontend Mentor Challenge created by Yusuf Neeson"

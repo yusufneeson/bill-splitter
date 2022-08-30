@@ -37,7 +37,7 @@ function HomeLayout({ children }) {
 			<div className={style.layout}>
 				<header className={style.logo}>
 					<Link href="/">
-						<a href="/">
+						<a>
 							<Logo />
 						</a>
 					</Link>
